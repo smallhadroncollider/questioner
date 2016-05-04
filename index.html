@@ -1,6 +1,69 @@
 <!doctype html>
+
 <html>
   <head>
+      <title>Ask - Questioner</title>
+
+      <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+      <style>
+          html, body {
+              height: 100%;
+          }
+
+          body {
+              margin: 0;
+              padding: 0;
+              width: 100%;
+              display: table;
+              font-weight: 100;
+              font-family: 'Lato';
+          }
+
+          .container {
+              text-align: center;
+              display: table-cell;
+              vertical-align: middle;
+          }
+
+          .content {
+              text-align: center;
+              display: inline-block;
+          }
+
+          .title {
+              margin-bottom: 32px;
+          }
+          .title h1 {
+              font-size: 56px;
+          }
+          .content {
+              width: 80%;
+              max-width: 720px;
+          }
+          input.form-control {
+              height: 38px;
+              font-size: 20px;
+              text-align: center;
+          }
+          .answer {
+              display: none;
+          }
+          @media (max-width: 700px) {
+              .content {
+                  width: 100%;
+              }
+              .title h1 {
+                  font-size: 38px;
+              }                
+          }
+          @media (max-width: 480px) {
+              .title h1 {
+                  font-size: 28px;
+              }
+          }
+      </style>
   </head>
   <body>
       <form id="form">
