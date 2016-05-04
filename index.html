@@ -1,14 +1,29 @@
 <!doctype html>
 <html>
   <head>
+      <style>
+          .hidden {
+              display: none;
+          }
+      </style>
   </head>
   <body>
-      <form id="form">
-          <textarea id="question"></textarea>
+      <p id="question-answer" class="hidden"></p>
+      <p id="waiting" class="hidden">Just a sec...</p>
+
+      <form class="hidden" id="question-form">
+          <textarea id="question-text"></textarea>
           <button>Ask</button>
       </form>
 
+      <form class="hidden" id="answer-form">
+          <p id="question-ask"></p>
+          <textarea id="answer-text"></textarea>
+          <button>Respond</button>
+      </form>
+
       <script src="/socket.io/socket.io.js"></script>
+      <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
       <script src="/app.js"></script>
   </body>
 </html>

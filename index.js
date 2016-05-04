@@ -1,9 +1,9 @@
-let connected = require("./connected");
-
 const express = require('express');
 const app = express();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
+
+let connected = require("./connected")(io);
 
 // serve up javascript files
 app.use(express.static("public"));
