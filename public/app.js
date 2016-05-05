@@ -21,6 +21,7 @@ socket.on("show question", msg => {
 socket.on("show answer", msg => {
     questionAsk.html(msg);
     show(answerForm);
+    hide(questionForm);
 });
 
 socket.on("answer", msg => {

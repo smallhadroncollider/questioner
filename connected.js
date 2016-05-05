@@ -4,17 +4,17 @@ module.exports = (io) => {
     let question = null;
 
     return socket => {
-        let askQuestion = () => {
+        let askQuestion = (on) => {
             if (questions.length) {
                 question = questions.shift();
-                socket.emit("show answer", question.msg);
+                on.emit("show answer", question.msg);
             } else {
-                socket.emit("no questions");
-                socket.emit("show question");
+                on.emit("no questions");
+                on.emit("show question");
             }
         };
 
-        askQuestion();
+        askQuestion(socket);
 
         socket.on("question", msg => {
             console.log(`Question: ${msg}`);
@@ -23,12 +23,14 @@ module.exports = (io) => {
                 socket: socket,
                 msg: msg,
             });
+
+            askQuestion(socket.broadcast);
         });
 
         socket.on("answer", msg => {
             question.socket.emit("answer", msg);
             socket.emit("show question");
-            askQuestion();
+            askQuestion(socket);
         });
     }
 }

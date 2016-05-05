@@ -47,9 +47,6 @@
               font-size: 20px;
               text-align: center;
           }
-          .answer {
-              display: none;
-          }
           @media (max-width: 700px) {
               .content {
                   width: 100%;
@@ -69,19 +66,71 @@
       </style>
   </head>
   <body>
-      <p id="question-answer" class="hidden"></p>
-      <p id="waiting" class="hidden">Just a sec...</p>
 
+<!--       <div class="container answer">
+          <div class="content">
+
+              <div class="title">
+                  <h1 id="waiting" class="hidden">Just a sec...</h1>
+                  <h1 id="question-answer" class="hidden"></h1>
+              </div>
+
+          </div>
+      </div> -->
+
+      <h1 id="waiting" class="hidden">Just a sec...</h1>
+
+      <h1 id="question-answer" class="hidden"></h1>
+      
       <form class="hidden" id="question-form">
-          <textarea id="question-text"></textarea>
-          <button>Ask</button>
+        <div class="container question">
+            <div class="content">
+
+              <div class="question">
+                <div class="title">
+                    <h1>Enter a question you would like answered</h1>
+                </div>
+
+                <div class="form-group">
+                    <input id="question-text" class="form-control" type="search" placeholder="For example; should I wash my cat?" />
+                </div>
+
+                <div class="form-group">
+                    <button id="js__ask-question" type="submit" class="btn btn-default btn-primary btn-block">Ask</button>
+                </div>
+              </div>
+
+            </div>
+        </div>
       </form>
 
       <form class="hidden" id="answer-form">
+        <div class="container question">
+            <div class="content">
+
+              <div class="question">
+                  <div class="title">
+                      <h1 id="question-ask"></h1>
+                  </div>
+
+                  <div class="form-group">
+                      <input id="answer-text" class="form-control" type="search" placeholder="Probably not..." />
+                  </div>
+
+                  <div class="form-group">
+                      <button id="js__ask-question" type="submit" class="btn btn-default btn-primary btn-block">Answer</button>
+                  </div>
+              </div>
+
+            </div>
+        </div>
+      </form>
+
+<!--       <form class="hidden" id="answer-form">
           <p id="question-ask"></p>
           <textarea id="answer-text"></textarea>
           <button>Respond</button>
-      </form>
+      </form> -->
 
       <script src="/socket.io/socket.io.js"></script>
       <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
